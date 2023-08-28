@@ -54,7 +54,7 @@ int main(){
         x +=1;
         max +=1;
         p1.leer();
-        
+        p2
     }
 
 }
