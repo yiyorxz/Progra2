@@ -27,6 +27,17 @@ class Vuelos:
 
     def Vuelos_disponibles(self, avuelo):
         self.Vuelos.append(avuelo)
+
+    def delete_vuelo(self, nvuelo):
+        for vuelo in self.Vuelos:
+            if vuelo.nvuelo == nvuelo:
+                confirmacion = input(f"¿Estás seguro de eliminar el vuelo {nvuelo}? (Y/N): ")
+                if confirmacion == "Y":
+                    self.Vuelos.remove(vuelo)
+                    print(f"El vuelo {nvuelo} ha sido eliminado.")
+                elif confirmacion == "N":
+                    print("Eliminación de vuelo cancelada.")
+
     def mostrar_vuelos(_vuelo):
         print("Vuelos disponibles:")
         for _vuelo in vuelos_1.Vuelos:
@@ -57,8 +68,12 @@ vuelos_1.Vuelos_disponibles(vuelo_1)
 vuelos_1.Vuelos_disponibles(vuelo_12)
 vuelos_1.Vuelos_disponibles(vuelo_13)
 vuelos_1.Vuelos_disponibles(vuelo_14)
+
 Vuelos.mostrar_vuelos(vuelo_1)
 
+# Eliminar un vuelo
+vuelo_eliminar = int(input("Ingrese el número de vuelo que desea eliminar: "))
+vuelos_1.delete_vuelo(vuelo_eliminar)
 class Pasajero:
     def __init__(self, pasaporte, nombre):
         self.pasaporte = pasaporte
