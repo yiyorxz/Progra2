@@ -32,7 +32,7 @@ avion_183 = Avion("bartolome 16", 60)
 avion_184 = Avion("bartolome 17", 60)
 avion_185 = Avion("bartolome 18", 60)
 
-vuelo_1 = vuelo(1,"santiago", "miami", "17/08/24", "17:40",avion_17)
+vuelo_1 = vuelo(1,str(input("ingrese origen ")), str(input("ingrese destino ")), str(input("ingrese fecha")), str(input("ingrese hora ")),avion_17)
 vuelo_12 = vuelo(2,"santiago", "miami", "17/08/24", "17:40",avion_18)
 vuelo_13 = vuelo(3,"santiago", "miami", "17/08/24", "17:40",avion_183)
 vuelo_14 = vuelo(4,"miami", "peru causa", "17/08/24", "17:40",avion_184)
