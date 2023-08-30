@@ -1,4 +1,3 @@
-from datetime import datetime
 class Avion:
     def __init__(self, modeloavion, asientos):
         self.modeloavion = modeloavion
@@ -70,7 +69,7 @@ def crear_vuelos(x):
         
 crear_aviones(3)
 crear_vuelos(3)
-aaaaaa
+
 
 
         
