@@ -12,6 +12,15 @@ class vuelo:
          self.fecha= fecha
          self.hora=hora
          self._avion=_avion
+         self.reservaciones=[]
+     def __str__(self):
+        return f"{self.nvuelo}, {self.origen}, {self.destino}, {self.fecha}, {self.hora} {self._avion}"  
+     def reservar(self,_reserva):
+        self.reservaciones.append(_reserva)
+     def mostrar_reservas(_reserva):
+        print("reservas:")
+        for _reserva in vuelo_1.reservaciones:
+            print(f"numero reserva {_reserva.nreserva} (Pasajero: {_reserva._pasajero}), (Vuelo: {_reserva._vuelo}) Estado: {_reserva.estado}")
 class Vuelos:
     def __init__(self):
         self.Vuelos = []
@@ -23,7 +32,14 @@ class Vuelos:
         for _vuelo in vuelos_1.Vuelos:
             print(f"Proximos_vuelo: {_vuelo.nvuelo}, Lugar de Origen: {_vuelo.origen}, Lugar de Destino: {_vuelo.destino}, Fecha asignada: {_vuelo.fecha}, Hora de: {_vuelo.hora}, Avion asignado: {_vuelo._avion}"
                   "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------")    
+class reservacion:
+    def __init__(self, nreserva, _pasajero, _vuelo, estado):
+        self.nreserva=nreserva
+        self._pasajero=_pasajero
+        self._vuelo=_vuelo
+        self.estado=estado
 
+        
 vuelos_1= Vuelos()
 
 avion_17 = Avion("bartolome 14", 60)
@@ -48,29 +64,30 @@ class Pasajero:
         self.pasaporte = pasaporte
         self.nombre = nombre
         self.vuelos_reservados = []
+    def __str__(self):
+        return f"{self.pasaporte}, {self.nombre}"
+    # def reservar(self,_reserva):
+    #     self.vuelos_reservados.append(_reserva)
+    
+    # def vuelo_reservado(self):
+    #     print(f"Vuelos reservados para{self.nombre} N°Pasaporte {self.pasaporte}:")
 
-    def reservacion_vuelo(self, vuelo):
-        self.vuelos_reservados.append(vuelo)
-
-    def vuelo_reservado(self):
-        print(f"Vuelos reservados para{self.nombre} N°Pasaporte {self.pasaporte}:")
-
-        for vuelo in self.vuelos_reservados:
-            print(f"Número de vuelo: ______ {vuelo.nvuelo}, Origen:___ {vuelo.origen}, Destino: ___{vuelo.destino}, Fecha:__ {vuelo.fecha}, Hora: {vuelo.hora}")
+    #     for vuelo in self.vuelos_reservados:
+    #         print(f"Número de vuelo: ______ {vuelo.nvuelo}, Origen:___ {vuelo.origen}, Destino: ___{vuelo.destino}, Fecha:__ {vuelo.fecha}, Hora: {vuelo.hora}")
 
 
 pasajero_1 = Pasajero("AB123456", "Jose Ernandes")
 pasajero_2 = Pasajero("CD789012", "Maria Canalio")
 pasajero_3 = Pasajero("EF345678", "Nashe")
 
-pasajero_1.reservacion_vuelo(vuelo_1)
-pasajero_2.reservacion_vuelo(vuelo_12)
-pasajero_3.reservacion_vuelo(vuelo_13)
-pasajero_1.reservacion_vuelo(vuelo_14)
+# pasajero_1.reservacion_vuelo(vuelo_1)
+# pasajero_2.reservacion_vuelo(vuelo_12)
+# pasajero_3.reservacion_vuelo(vuelo_13)
+# pasajero_1.reservacion_vuelo(vuelo_14)
 
-pasajero_1.vuelo_reservado()
-pasajero_2.vuelo_reservado()
-pasajero_3.vuelo_reservado()
+reserva= reservacion(1, pasajero_1, vuelo_1, "reservado")
+vuelo.reservar(vuelo_1, reserva)
+vuelo.mostrar_reservas(reserva)
 
 
 
