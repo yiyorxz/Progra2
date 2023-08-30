@@ -2,59 +2,91 @@
 #include <array>
 using namespace std;
 class avion {
-    private:
+    public:
         string modelo;
         int numero_asientos;
+    public:
+    avion(string,int);
 };
 class vuelo {
-    private:
-        int numero_vuelo;
+    public:
+        string numero_vuelo;
         string origen;
         string destino;
         string fecha;
         string hora;
-        array<string, 6> reservaciones = {};
+        
+    public:
+        vuelo(string, string,string,string, string);
+        void mostrar();
+};
+class vuelosdisponible{
+    public:
+        string lista[5] = {};
+    public:
+        vuelosdisponible(string);
+        void mostrar();
 };
 class pasajero {
-    private:
+    public:
         string nombre;
         string apellido;
         int n_pasaporte;
-        array<char const*, 6> reservaciones ={};
     public:
         pasajero(string, string, int);
-        void leer();
 };
+class reservacion {
+    public:
+        int n_reserva;
+        string pasajero;
+        string vuelo;
+        string estado;
+    public:
+        reservacion(int, string);
+
+};
+//####################################################################################################
+avion::avion(string _modelo, int _nasientos){
+    modelo= _modelo;
+    numero_asientos= _nasientos;
+
+}
+//####################################################################################################
+vuelo::vuelo(string _numero, string _origen, string _destino, string _fecha, string _hora){
+    numero_vuelo= _numero;
+    origen= _origen;
+    destino = _destino;
+    fecha= _fecha;
+    hora=_hora;
+}
+vuelosdisponible::vuelosdisponible(string _lista){
+    lista[5].append(_lista);
+}
+void vuelosdisponible::mostrar(){
+    int tamano= 6;
+    for( int i=-1; tamano>i; --i){
+        cout<<lista[i]<<endl;
+    }
+    
+}
+
+//####################################################################################################
 pasajero::pasajero(string _nombre,string _apellido,int _npasport){
     nombre= _nombre;
     apellido= _apellido;
     n_pasaporte= _npasport;
 }
-void pasajero::leer(){
-    cout<<"soy "<<nombre<<" "<<apellido<<" y yo me vengo, y mi pasport es "<<n_pasaporte<<" "<<endl;
+//####################################################################################################
+reservacion::reservacion(int _nreserva, string _estado){
+    n_reserva=_nreserva;
+    estado= _estado;
 }
-
-
-class reservacion {
-    private:
-        int n_reserva;
-
-};
 int main(){
-    int max = 1;
-    while (max <= 6){
-        int x = 1;
-        string nom;
-        cout<<"ingrese nombre del pasajero ", cin>> nom;
-        string ape;
-        cout<<"ingrese apellido del pasajero ", cin>> ape;
-        int pasaporte;
-        cout<<"ingrese pasaporte del pasajero ", cin>> pasaporte;
-        pasajero p1= pasajero(nom, ape, pasaporte);
-        x +=1;
-        max +=1;
-        p1.leer();
-        p2
-    }
+    vuelo v1= vuelo("1","toronto","Santiago","14/08/23","18:30");
+    string v1;
+    vuelosdisponible a1= vuelosdisponible(v1);
+
+    int z;
+    cout<<"hola",cin>>z;
 
 }
