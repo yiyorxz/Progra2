@@ -1,14 +1,21 @@
 class Avion:
-    def __init__(self, modeloavion, num_asientos, vuelosin):
+    def __init__(self, modeloavion, asientos):
         self.modeloavion = modeloavion
-        self.num_asientos = num_asientos
-        self.vuelosin = vuelosin
+        self.asientos = asientos
 
-        def __str__(self):
-            return 'Modeloavion: {}\nNum_asientos: {}nVuelo: {}'
+class Aviones:
+    def __init__(self):
+        self.aviones = []
 
+    def aviones_disponibles(self, avion):
+        self.aviones.append(avion)
 
+disponibilidad_aviones = Aviones()
 
+avion_17 = Avion("bartolome 14", 60)
 
+disponibilidad_aviones.aviones_disponibles(avion_17)
 
-
+print("Aviones disponibles:")
+for avion in disponibilidad_aviones.aviones:
+    print(f"Modelo: {avion.modeloavion}, Asientos: {avion.asientos}")
